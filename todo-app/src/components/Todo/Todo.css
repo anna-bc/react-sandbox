@@ -21,6 +21,27 @@
 .todoInfos {
     display: flex;
     justify-content: space-between;
+    /* color: white; */
+}
+
+.todoInfos--1 {
+    background-color: red;
+}
+
+.todoInfos--2 {
+    background-color: orange;
+}
+
+.todoInfos--3 {
+    background-color: yellow;
+}
+
+.todoInfos--4 {
+    background-color: greenyellow;
+}
+
+.todoInfos--5 {
+    background-color: green;
 }
 
 .todoInfos__item {

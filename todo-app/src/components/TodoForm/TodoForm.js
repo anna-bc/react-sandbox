@@ -14,6 +14,7 @@ function TodoForm(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    e.target[0].value = "";
     props.addTodo(todo);
   };
 
