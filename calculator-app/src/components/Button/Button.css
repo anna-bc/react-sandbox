@@ -1,0 +1,16 @@
+button {
+    height: 100px;
+    width: 100px;
+    border: thin solid black;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color:darkgrey;
+}
+
+.numZero {
+    width: auto;
+    flex-basis: 300px;
+    flex-shrink: 0;
+}
