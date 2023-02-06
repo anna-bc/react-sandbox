@@ -7,12 +7,14 @@
 }
 
 .todoTitle {
+    background-color: white;
     box-sizing: border-box;
     width: 100%;
     height: 75%;
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
+    border-radius: 10px 10px 0px 0px;
     border-bottom: thin solid black;
     display: flex;
     align-items: center;
@@ -24,23 +26,23 @@
     /* color: white; */
 }
 
-.todoInfos--1 {
+.todoItem--1 {
     background-color: red;
 }
 
-.todoInfos--2 {
+.todoItem--2 {
     background-color: orange;
 }
 
-.todoInfos--3 {
+.todoItem--3 {
     background-color: yellow;
 }
 
-.todoInfos--4 {
+.todoItem--4 {
     background-color: greenyellow;
 }
 
-.todoInfos--5 {
+.todoItem--5 {
     background-color: green;
 }
 
