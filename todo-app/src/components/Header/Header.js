@@ -1,3 +1,5 @@
+import './Header.css'
+
 function Header() {
     return (
         <header className="wrapper__item wrapper__item--header">

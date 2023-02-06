@@ -1,0 +1,27 @@
+.calcWrapper {
+  text-align: center;
+  width: 400px;
+  height: 500px;
+  border: thin solid black;
+  margin: auto;
+  display: flex;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100%;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 100%;
+}
+.Result {
+  height: 100px;
+  width: 300px;
+}
+

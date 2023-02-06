@@ -1,13 +1,48 @@
+import "./TodoList.css";
+import Todo from "../Todo/Todo";
+
+import { useState } from "react";
+
 function TodoList(props) {
-    return (
-        <ul>
-            {props.todos.map((el, i) => <li key={el + "-" + i}>
-                <h3>{el.title}</h3>
-                <p>{el.dueDate}</p>
-                <div>{el.priority}</div>
-            </li>)}
-        </ul>
-    );
+
+  // const sortByPriority = (e) => {
+  //   console.log(props.todos);
+  //   let done = false;
+  //   while (!done) {
+  //     done = true;
+  //     for (let i = 1; i < props.todos.length; i++) {
+  //       if (props.todos[i - 1].priority.value > props.todos[i].priority.value) {
+  //         done = false;
+  //         let tmp = props.todos[i - 1];
+  //         props.todos[i - 1] = props.todos[i];
+  //         props.todos[i] = tmp;
+  //       }
+  //     }
+  //   }
+  // };
+
+  // console.log(props);
+  return (
+    <div className="listWrapper">
+      <ul>
+        {props.todos.map((el, i) => (
+          <li key={"todo-" + i}>
+            <Todo
+              todo={el}
+              removeTodo={(todo) => {
+                let idx = props.todos.indexOf(todo);
+                console.log(idx);
+                props.removedTodoIdx(idx);
+              }}
+            />
+          </li>
+        ))}
+      </ul>
+      <button id="sortByPrio" onClick={props.onSortClick()}>
+        Sort by Priority
+      </button>
+    </div>
+  );
 }
 
 export default TodoList;
