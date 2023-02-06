@@ -1,0 +1,21 @@
+.headerWrapper {
+    box-sizing: border-box;
+    height: 10vh;
+    width: 60vw;
+    margin: auto;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    border: 5px solid #F2e9eb;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    justify-content: space-around;
+}
+
+.header__item--navigation {
+    width: 75%;
+}
