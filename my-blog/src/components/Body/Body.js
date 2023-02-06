@@ -26,7 +26,11 @@ export default function Body() {
 
   return (
     <div className="bodyWrapper">
-      <PostList list={postList} />
+      <PostList list={postList} removePost={post => {
+        let idx = postList.indexOf(post);
+        let newPosts = postList.filter((el, i) => idx !== i)
+        setPostList([...newPosts]);
+      }} />
       <PostForm
         addPost={(post) => {
           setPostList([...postList, post]);

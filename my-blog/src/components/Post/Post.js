@@ -9,6 +9,10 @@ export default function Post(props) {
     content: "",
   });
 
+  function handleDeleteClick() {
+    props.deleteClick(props.post)
+  }
+
   return (
     <div className="postWrapper">
       <div className="post__item title">{props.post.title}</div>
@@ -17,7 +21,7 @@ export default function Post(props) {
         <div className="moderation__item author">{props.post.author}</div>
         <div className="moderation__item buttons">
           <button className="buttons__item">Edit</button>
-          <button className="buttons__item">Delete</button>
+          <button className="buttons__item" onClick={handleDeleteClick}>Delete</button>
         </div>
       </div>
     </div>
