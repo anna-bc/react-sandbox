@@ -48,3 +48,10 @@
     width: 60px;
     height: 25px;
 }
+
+.newPost {
+    text-align: center;
+    margin: 20px 0px;
+    font-size: 28px;
+    font-weight: 600;
+}
