@@ -3,6 +3,8 @@
     height: 300px;
     background: white;
     margin: auto;
+    border: thin solid #DD8EA4;
+    border-radius: 5px;
 
 }
 

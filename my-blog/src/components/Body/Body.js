@@ -9,9 +9,11 @@ export default function Body() {
   // declare State variables
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // const [isEditing, setIsEditing] = useState(false);
+
   const [postList, setPostList] = useState(() => {
-    let posts = JSON.parse(localStorage.getItem('posts'));
-    if(!posts) {
+    let posts = JSON.parse(localStorage.getItem("posts"));
+    if (!posts) {
       return [
         {
           id: "1",
@@ -32,24 +34,43 @@ export default function Body() {
   });
 
   useEffect(() => {
-    localStorage.setItem('posts', JSON.stringify(postList));
+    localStorage.setItem("posts", JSON.stringify(postList));
   }, [postList]);
 
+  const [postIdxToEdit, setPostIdxToEdit] = useState('');
 
   return (
     <div className="bodyWrapper">
-      {!isLoggedIn ? <Login setIsLoggedIn={setIsLoggedIn} /> : <></> }
-      <PostList list={postList} removePost={post => {
-        let idx = postList.indexOf(post);
-        let newPosts = postList.filter((el, i) => idx !== i)
-        setPostList([...newPosts]);
-      }} isLoggedIn={isLoggedIn} />
-      {isLoggedIn ? <PostForm
-        addPost={(post) => {
-          setPostList([...postList, post]);
-          console.log(postList);
-        }}
-      /> : <></>}
+      <div className="sideBarWrapper">
+      {isLoggedIn ? (
+          <PostForm
+            addPost={(post) => {
+              setPostList([...postList, post]);
+              console.log(postList);
+            }}
+            // isEditing={isEditing}
+          />
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className="posts">
+        <PostList
+          list={postList}
+          setPostList={setPostList}
+          removePost={(post) => {
+            let idx = postList.indexOf(post);
+            let newPosts = postList.filter((el, i) => idx !== i);
+            setPostList([...newPosts]);
+          }}
+          isLoggedIn={isLoggedIn}
+          // isEditing={isEditing}
+          // setIsEditing={setIsEditing}
+        />
+      </div>
+      <div className="sideBarWrapper">
+        {!isLoggedIn ? <Login setIsLoggedIn={setIsLoggedIn} /> : <></>}
+      </div>
     </div>
   );
 }

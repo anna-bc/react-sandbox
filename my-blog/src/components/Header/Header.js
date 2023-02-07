@@ -12,6 +12,7 @@ export default function Header() {
                     <li key={"Contact"}>Contact</li>
                 </ul>
             </div>
+            <div className="header__item"></div>
         </header>
     )
 }

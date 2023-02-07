@@ -1,0 +1,25 @@
+.loginWrapper { 
+    padding: 10px 20px 10px 60px;
+    width: 70%;
+}
+
+.formTitle {
+    font-size: 24px;
+}
+
+#loginForm {
+    width: 70%;
+}
+
+.login__item {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#loginBtn {
+    margin-top: 10px;
+    background-color: #DD8EA4;
+    border-radius: 5px;
+    color: white;
+}
