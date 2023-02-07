@@ -21,12 +21,12 @@ export default function Post(props) {
         <div className="post__item content"> {props.post.content} </div>
         <div className="moderationWrapper">
           <div className="moderation__item author">{props.post.author}</div>
-          <div className="moderation__item buttons">
+          {props.isLoggedIn ? <div className="moderation__item buttons">
             <button className="buttons__item" id="editBtn">Edit</button>
             <button className="buttons__item" id="deletBtn" onClick={handleDeleteClick}>
               Delete
             </button>
-          </div>
+          </div> : <></>}
         </div>
       </div>
     </>
