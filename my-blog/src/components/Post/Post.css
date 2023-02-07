@@ -1,8 +1,10 @@
 .postWrapper {
-    width: 90%;
+    width: 65%;
     height: 300px;
-    background: white;
+    background: #F2e9eb;
     margin: auto;
+    border: thin solid #DD8EA4;
+    border-radius: 5px;
 
 }
 
@@ -19,6 +21,8 @@
     display: flex;
     align-items: center;
     border: thin solid #DD8EA4;
+    background-color: #DD8EA4;
+    color: white;
 }
 
 .content {
@@ -36,6 +40,7 @@
     align-items: center;
     gap: 10px;
     border: thin solid #DD8EA4;
+    /* background-color: #DD8EA4; */
 }
 
 .moderation__item {
@@ -46,4 +51,14 @@
     margin-left: 10px;
     width: 60px;
     height: 25px;
+    border-radius: 5px;
+}
+
+#editBtn {
+    background-color: #Fedd89;
+}
+
+#deletBtn {
+    background-color: #DD8EA4;
+    color: white;
 }
