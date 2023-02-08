@@ -1,6 +1,20 @@
-.loginWrapper { 
+.Login { 
     padding: 10px 20px 10px 60px;
     width: 70%;
+
+    &--light {
+        & #loginBtn {
+            background-color: #DD8EA4;
+            color: white;
+        }
+    }
+
+    &--dark {
+        & #loginBtn {
+            background-color: #554d56;
+            color: white;
+        }
+    }
 }
 
 .formTitle {
@@ -19,7 +33,5 @@
 
 #loginBtn {
     margin-top: 10px;
-    background-color: #DD8EA4;
     border-radius: 5px;
-    color: white;
 }

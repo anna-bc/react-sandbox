@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "./Login.css";
+import "./Login.scss";
 
 export default function Login(props) {
   const [username, setUsername] = useState("");
@@ -34,13 +34,20 @@ export default function Login(props) {
 
     let authData = checkIfUsernameExists(username);
 
-    if (username === authData.username  && password === authData.password) {
+    if (authData && username === authData.username  && password === authData.password) {
       props.setIsLoggedIn(true);
+    }
+    else {
+      return alert('Your username or password is not right!');
     }
   }
 
   return (
-    <div className="loginWrapper">
+    <div className={
+      "Login" +
+      " Login" +
+      (props.theme === "light" ? "--light" : "--dark")
+    }>
       <div className="formTitle">Login to edit and delete Posts</div>
       <form id="loginForm" onSubmit={handleSubmit}>
         <div className="login__item">

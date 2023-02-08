@@ -1,15 +1,13 @@
-import "./Body.css";
+import "./Body.scss";
 
 import { useEffect, useState } from "react";
 import PostList from "../PostList/PostList";
 import PostForm from "../PostForm/PostForm";
 import Login from "../Login/Login";
 
-export default function Body() {
+export default function Body(props) {
   // declare State variables
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // const [isEditing, setIsEditing] = useState(false);
 
   const [postList, setPostList] = useState(() => {
     let posts = JSON.parse(localStorage.getItem("posts"));
@@ -37,18 +35,23 @@ export default function Body() {
     localStorage.setItem("posts", JSON.stringify(postList));
   }, [postList]);
 
-  const [postIdxToEdit, setPostIdxToEdit] = useState('');
+  const [postIdxToEdit, setPostIdxToEdit] = useState("");
 
   return (
-    <div className="bodyWrapper">
+    <div
+      className={
+        "Body" + " Body" + (props.theme === "light" ? "--light" : "--dark")
+      }
+    >
       <div className="sideBarWrapper">
-      {isLoggedIn ? (
+        {isLoggedIn ? (
           <PostForm
             addPost={(post) => {
               setPostList([...postList, post]);
               console.log(postList);
             }}
-            // isEditing={isEditing}
+            theme={props.theme}
+            setTheme={props.setTheme}
           />
         ) : (
           <></>
@@ -64,12 +67,15 @@ export default function Body() {
             setPostList([...newPosts]);
           }}
           isLoggedIn={isLoggedIn}
-          // isEditing={isEditing}
-          // setIsEditing={setIsEditing}
+          theme={props.theme}
+          setTheme={props.setTheme}
         />
       </div>
-      <div className="sideBarWrapper">
-        {!isLoggedIn ? <Login setIsLoggedIn={setIsLoggedIn} /> : <></>}
+      <div
+        className="sideBarWrapper"
+      >
+        {!isLoggedIn ? <Login setIsLoggedIn={setIsLoggedIn} theme={props.theme}
+        setTheme={props.setTheme} /> : <></>}
       </div>
     </div>
   );

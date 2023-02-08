@@ -1,8 +1,18 @@
-import './Header.css';
+import './Header.scss';
 
-export default function Header() {
+import { useEffect, useState } from 'react';
+
+export default function Header(props) {
+
+    function handleToggle() {
+        console.log('old', props.theme);
+        const newTheme = props.theme === 'light' ? 'dark' : 'light';
+        console.log('new', newTheme);
+        props.setTheme(newTheme);
+    }
+
     return (
-        <header className="headerWrapper">
+        <header className={'Header' + ' Header' + (props.theme === 'light' ? '--light' : '--dark')}>
             <div className="header__item header__item--logo">Anna's Blog</div>
             <div className="header__item header__item--navigation">
                 <ul>
@@ -12,7 +22,9 @@ export default function Header() {
                     <li key={"Contact"}>Contact</li>
                 </ul>
             </div>
-            <div className="header__item"></div>
+            <div className="header__item header__item--theme">
+                <button onClick={handleToggle}>{props.theme === 'light' ? <span>Light Theme</span> : <span>Dark Theme</span>}</button>
+            </div>
         </header>
     )
 }

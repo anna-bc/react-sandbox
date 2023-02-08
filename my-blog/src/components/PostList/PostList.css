@@ -1,9 +1,0 @@
-.postList > ul {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-}
-
-li {
-    margin: 20px 0px;
-}

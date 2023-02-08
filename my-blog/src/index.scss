@@ -1,5 +1,4 @@
 * {
-  color: #31383F;
   box-sizing: border-box;
 }
 
@@ -10,10 +9,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F2e9eb;
+  min-height: 100vh;
+  height: 100%;
+  // background-color: #F2e9eb;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  height: 100%;
 }
