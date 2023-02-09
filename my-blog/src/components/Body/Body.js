@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import PostList from "../PostList/PostList";
 import PostForm from "../PostForm/PostForm";
 import Login from "../Login/Login";
+import Search from "../../container/Search";
 
 export default function Body(props) {
   // declare State variables
@@ -31,11 +32,12 @@ export default function Body(props) {
     return posts;
   });
 
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchList, setSearchList] = useState([]);
+
   useEffect(() => {
     localStorage.setItem("posts", JSON.stringify(postList));
   }, [postList]);
-
-  const [postIdxToEdit, setPostIdxToEdit] = useState("");
 
   return (
     <div
@@ -44,11 +46,17 @@ export default function Body(props) {
       }
     >
       <div className="sideBarWrapper">
+        <Search
+          theme={props.theme}
+          posts={postList}
+          showFilteredList={(list) => setSearchList(list)}
+          setIsSearching={setIsSearching}
+
+        />
         {isLoggedIn ? (
           <PostForm
             addPost={(post) => {
               setPostList([...postList, post]);
-              console.log(postList);
             }}
             theme={props.theme}
             setTheme={props.setTheme}
@@ -58,7 +66,8 @@ export default function Body(props) {
         )}
       </div>
       <div className="posts">
-        <PostList
+      {!isSearching ? (
+      <PostList
           list={postList}
           setPostList={setPostList}
           removePost={(post) => {
@@ -69,13 +78,29 @@ export default function Body(props) {
           isLoggedIn={isLoggedIn}
           theme={props.theme}
           setTheme={props.setTheme}
-        />
+        />) : (<PostList
+          list={searchList}
+          setPostList={setPostList}
+          removePost={(post) => {
+            let idx = postList.indexOf(post);
+            let newPosts = postList.filter((el, i) => idx !== i);
+            setPostList([...newPosts]);
+          }}
+          isLoggedIn={isLoggedIn}
+          theme={props.theme}
+          setTheme={props.setTheme}
+        />)}
       </div>
-      <div
-        className="sideBarWrapper"
-      >
-        {!isLoggedIn ? <Login setIsLoggedIn={setIsLoggedIn} theme={props.theme}
-        setTheme={props.setTheme} /> : <></>}
+      <div className="sideBarWrapper">
+        {!isLoggedIn ? (
+          <Login
+            setIsLoggedIn={setIsLoggedIn}
+            theme={props.theme}
+            setTheme={props.setTheme}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

@@ -5,9 +5,7 @@ import { useEffect, useState } from 'react';
 export default function Header(props) {
 
     function handleToggle() {
-        console.log('old', props.theme);
         const newTheme = props.theme === 'light' ? 'dark' : 'light';
-        console.log('new', newTheme);
         props.setTheme(newTheme);
     }
 

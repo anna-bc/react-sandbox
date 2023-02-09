@@ -12,7 +12,6 @@ export default function PostForm(props) {
   function onSubmit(e) {
     e.preventDefault();
     setPost({ ...post, id: props.postId });
-    console.log(post);
     if (!props.isEditing) {
       props.addPost(post);
     }
