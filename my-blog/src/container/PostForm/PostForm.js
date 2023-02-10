@@ -7,11 +7,12 @@ export default function PostForm(props) {
     title: "",
     content: "",
     author: "",
+    comments: [],
   });
 
   function onSubmit(e) {
     e.preventDefault();
-    setPost({ ...post, id: props.postId });
+    setPost(post);
     if (!props.isEditing) {
       props.addPost(post);
     }

@@ -1,6 +1,6 @@
 .Post {
   width: 65%;
-  height: 300px;
+  height: auto;
   margin: auto;
   border-radius: 5px;
 
@@ -15,6 +15,10 @@
     }
 
     & .content {
+      border: thin solid #dd8ea4;
+    }
+
+    & .commentSection {
       border: thin solid #dd8ea4;
     }
 
@@ -42,6 +46,10 @@
       color: white;
     }
     & .content {
+      border: thin solid #554d56;
+    }
+
+    & .commentSection {
       border: thin solid #554d56;
     }
 

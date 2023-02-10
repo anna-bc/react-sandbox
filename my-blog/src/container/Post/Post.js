@@ -1,6 +1,8 @@
 import "./Post.scss";
 
 import { useState } from "react";
+import CommentsList from "../../components/CommentsList/CommentsList";
+import CommentForm from "../CommentForm/CommentForm";
 
 export default function Post(props) {
   const [newPost, setNewPost] = useState({
@@ -74,10 +76,11 @@ export default function Post(props) {
           </form>
         </div>
       ) : (
-        <>
           <div
             className={
-              "Post" + " Post" + (props.theme === "light" ? "--light" : "--dark")
+              "Post" +
+              " Post" +
+              (props.theme === "light" ? "--light" : "--dark")
             }
           >
             <div className="post__item title">{props.post.title}</div>
@@ -105,8 +108,28 @@ export default function Post(props) {
                 <></>
               )}
             </div>
+            <div className="commentSection">
+              <CommentsList
+                theme={props.theme}
+                comments={props.post.comments}
+              />
+              <CommentForm 
+              theme={props.theme}
+              addComment={(comment) => {
+                let newPost = {...props.post, comments: [...props.post.comments, comment]}
+                let idx = props.posts.indexOf(props.post);
+                const newPosts = [...props.posts].map((p, i) => {
+                  if (idx == i) {
+                    return newPost;
+                  }
+                  return p;
+                });
+            
+                props.setPostList(newPosts);
+              }
+            } />
+            </div>
           </div>
-        </>
       )}
     </>
   );

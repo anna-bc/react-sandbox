@@ -14,10 +14,10 @@ export default function Header(props) {
             <div className="header__item header__item--logo">Anna's Blog</div>
             <div className="header__item header__item--navigation">
                 <ul>
-                    <li key={"Home"}>Home</li>
-                    <li key={"About Me"}>About Me</li>
-                    <li key={"Posts"}>Posts</li>
-                    <li key={"Contact"}>Contact</li>
+                    <li className='nav__item' key={"Home"}>Home</li>
+                    <li className='nav__item'key={"About Me"}>About Me</li>
+                    <li className='nav__item' key={"Posts"}>Posts</li>
+                    <li className='nav__item' key={"Contact"}>Contact</li>
                 </ul>
             </div>
             <div className="header__item header__item--theme">
